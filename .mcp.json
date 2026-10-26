@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "graphify-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}

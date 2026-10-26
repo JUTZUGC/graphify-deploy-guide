@@ -1,0 +1,106 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "graphify",
+    "nameCn": "graphify",
+    "repoName": "graphify-deploy-guide",
+    "oneLiner": "把代码库变成可查询知识图谱的 Agent 技能",
+    "officialRepo": "https://github.com/Graphify-Labs/graphify",
+    "officialDocs": "https://docs.graphify.com",
+    "stars": "135k",
+    "license": "Apache-2.0",
+    "highlights": [
+      "输入：约 40 种语言的源码，加上文档、PDF、图片、音视频（可选语义通道）",
+      "输出：graph.html，可点击、可搜索、按社区着色",
+      "两种用法：助手里的 `/graphify .`，或命令行",
+      "安装：`pip install graphifyy` 后 `graphify install` 自动注册技能"
+    ],
+    "mcpSupport": "它不是 MCP server，而是把 `/graphify` 技能注册到你已有的编码助手里。本仓库的 MCP 只提供安装步骤与常见坑。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-26",
+    "verification": [
+      [
+        "venv 安装 graphifyy 成功，graphify --help 正常输出",
+        "已验证 2026-10-26"
+      ],
+      [
+        "graphify install --platform trae 写入 ~/.trae/skills/graphify/SKILL.md",
+        "已验证 2026-10-26"
+      ],
+      [
+        "MCP 服务握手与工具列表（initialize / tools/list）",
+        "已验证 2026-10-26"
+      ],
+      [
+        "非目标宿主调用被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-26"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "python"
+      ],
+      "steps": [
+        "python3 -m venv .venv",
+        ".venv/bin/pip install graphifyy",
+        ".venv/bin/graphify install --platform trae",
+        ".venv/bin/graphify install --platform trae-cn"
+      ],
+      "stepsPs": [
+        "python -m venv .venv",
+        ".venv\\Scripts\\python.exe -m pip install graphifyy ; if ($LASTEXITCODE -ne 0) { throw '安装失败，请查看上面的输出' }",
+        ".venv\\Scripts\\graphify.exe install --platform trae",
+        ".venv\\Scripts\\graphify.exe install --platform trae-cn"
+      ],
+      "source": "https://github.com/Graphify-Labs/graphify#get-started"
+    },
+    "pitfalls": [
+      "Python 版本不够：需要 3.10+，先 `python --version` 确认",
+      "命令找不到：装在 `.venv` 里，先激活或用全路径",
+      "注册到了错误的客户端：`graphify install --platform <名字>` 指定，`graphify uninstall` 可撤回",
+      "只想给当前项目装：用 `--project`，别污染全局",
+      "大仓库第一次很慢：先用 `--update` 增量跑，或只对子目录建图",
+      "PDF / 图片解析不出来：语义通道是可选能力，要按官方文档单独准备",
+      "生成的 `graphify-out/` 别提交进仓库，按需加进 `.gitignore`"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/graphify-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/graphify-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "graphify 安装",
+    "代码库 知识图谱",
+    "代码 可视化 关系图",
+    "Claude Code 技能",
+    "AST 解析 图谱",
+    "graphify 教程",
+    "graphify 中文",
+    "代码理解 工具",
+    "知识图谱 代码",
+    "graphify deploy guide"
+  ],
+  "topics": [
+    "knowledge-graph",
+    "code-analysis",
+    "ai-agents",
+    "ast",
+    "claude-code",
+    "python"
+  ]
+}
