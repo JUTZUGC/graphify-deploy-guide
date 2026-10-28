@@ -8,7 +8,7 @@
     "oneLiner": "把代码库变成可查询知识图谱的 Agent 技能",
     "officialRepo": "https://github.com/Graphify-Labs/graphify",
     "officialDocs": "https://docs.graphify.com",
-    "stars": "135k",
+    "stars": "137.3k",
     "license": "Apache-2.0",
     "highlights": [
       "输入：约 40 种语言的源码，加上文档、PDF、图片、音视频（可选语义通道）",
@@ -19,7 +19,7 @@
     "mcpSupport": "它不是 MCP server，而是把 `/graphify` 技能注册到你已有的编码助手里。本仓库的 MCP 只提供安装步骤与常见坑。",
     "webuiUrl": "",
     "adapterPorts": "",
-    "collectedAt": "2026-10-26",
+    "collectedAt": "2026-10-28",
     "verification": [
       [
         "venv 安装 graphifyy 成功，graphify --help 正常输出",
